@@ -35,6 +35,9 @@ public class PrimeTest {
 	public void test() {
 		Primes prime = new Primes();
 		
+		// Test sprawdzający poprawność konstruktora
+		assertEquals(Primes.primes.size(), 2);
+		
 		// Testy sprawdzające poprawność podzielności liczb przez siebie
 		assertTrue(prime.isNumberDividible(20, 5));
 		assertFalse(prime.isNumberDividible(23, 4));
