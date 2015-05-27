@@ -36,20 +36,24 @@ public class PrimeTest {
 		Primes prime = new Primes();
 		
 		// Test sprawdzający poprawność konstruktora
+		// new Primes()
 		assertEquals(Primes.primes.size(), 2);
 		
 		// Testy sprawdzające poprawność podzielności liczb przez siebie
+		// isNumberDividible
 		assertTrue(prime.isNumberDividible(20, 5));
 		assertFalse(prime.isNumberDividible(23, 4));
 		
 		
 		// Test sprawdzający dodawanie 100 dowolnych licz do tablicy
+		// addNextPrime
 		for(int i =0 ; i < 100 ; i++)
 			assertEquals(prime.addNextPrime(i), prime.primes.size());
 		
 		prime = new Primes();
 		
 		// Test sprawdzający 10 pierwszych licz pierwszych
+		// getNextPrime
 		for(int i = 0 ; i < 10 ; i++){
 			long pr = prime.getNextPrime(Primes.primes);
 			long j = 2;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Primes {
-	public final int primes_num = 10001;
+	public final int expected_prime_number = 10001;
 	public static List<Long> primes;
 
 	public Primes(){
@@ -14,7 +14,7 @@ public class Primes {
 	}
 
 	public static void main(String args[]){
-		
+
 	}
 
 	public boolean isNumberDividible(long number, long divider){
@@ -24,24 +24,31 @@ public class Primes {
 		return true;
 	}
 
-	
+
 	public int addNextPrime(long prime){
 		primes.add(prime);
 		return primes.size();
 	}
-	
+
 	public long getNextPrime(List<Long> primes){
-        long new_prime = primes.get(primes.size()-1)+1;
-        while(true){
-            for(Long i : primes){
-                if(isNumberDividible(new_prime, i)){
-                    break;
-                }
-                else if(new_prime/i <= i){
-                	return new_prime;
-                }
-            }
-            new_prime++;
-        }
-    }
+		long new_prime = primes.get(primes.size()-1)+1;
+		while(true){
+			for(Long i : primes){
+				if(isNumberDividible(new_prime, i)){
+					break;
+				}
+				else if(new_prime/i <= i){
+					return new_prime;
+				}
+			}
+			new_prime++;
+		}
+	}
+
+	public long getAnswer(){
+		while(Primes.primes.size() != expected_prime_number)
+			Primes.primes.add(getNextPrime(Primes.primes));
+
+		return Primes.primes.get(expected_prime_number-1);
+	}
 }
