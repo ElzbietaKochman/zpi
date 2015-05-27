@@ -34,13 +34,28 @@ public class PrimeTest {
 	@Test
 	public void test() {
 		Primes prime = new Primes();
+		
+		// Testy sprawdzające poprawność podzielności liczb przez siebie
 		assertTrue(prime.isNumberDividible(20, 5));
 		assertFalse(prime.isNumberDividible(23, 4));
 		
+		
+		// Test sprawdzający dodawanie 100 dowolnych licz do tablicy
 		for(int i =0 ; i < 100 ; i++)
 			assertEquals(prime.addNextPrime(i), prime.primes.size());
 		
+		prime = new Primes();
 		
+		// Test sprawdzający 10 pierwszych licz pierwszych
+		for(int i = 0 ; i < 10 ; i++){
+			long pr = prime.getNextPrime(Primes.primes);
+			long j = 2;
+			while(j <= pr /2){
+				if(pr % j == 0) 
+					fail("Non prime detected!");
+				j++;
+			}
+		}
 		
 	}
 
