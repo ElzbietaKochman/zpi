@@ -36,7 +36,12 @@ public class PrimeTest {
 		Primes prime = new Primes();
 		assertTrue(prime.isNumberDividible(20, 5));
 		assertFalse(prime.isNumberDividible(23, 4));
-		fail("Not yet implemented");
+		
+		for(int i =0 ; i < 100 ; i++)
+			assertEquals(prime.addNextPrime(i), prime.primes.size());
+		
+		
+		
 	}
 
 }
