@@ -48,7 +48,7 @@ public class PrimeTest {
 		// Test sprawdzający dodawanie 100 dowolnych licz do tablicy
 		// addNextPrime
 		for(int i =0 ; i < 100 ; i++)
-			assertEquals(prime.addNextPrime(i), prime.primes.size());
+			assertEquals(prime.addNextPrime(i), Primes.primes.size());
 		
 		prime = new Primes();
 		

@@ -3,6 +3,10 @@ package zpi.kochman.elzbieta;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Ela
+ *
+ */
 public class Primes {
 	public final int expected_prime_number = 10001;
 	public static List<Long> primes;
@@ -13,10 +17,12 @@ public class Primes {
 		primes.add(3L);
 	}
 
-	public static void main(String args[]){
-
-	}
-
+	/**
+	 * Metoda sprawdzająca podzielność liczb
+	 * @param number - dzielna
+	 * @param divider - dzielnik
+	 * @return [boolean] odpowiedź czy <b>divider</b> jest dzielnikiem <b>number</b>
+	 */
 	public boolean isNumberDividible(long number, long divider){
 		if(number % divider!=0){
 			return false;
@@ -25,11 +31,21 @@ public class Primes {
 	}
 
 
+	/**
+	 * Metoda dodająca liczbę pierwszę do listy aktualnych liczb pierwszych
+	 * @param prime - liczba pierwsza
+	 * @return [int] rozmiar listy liczb pierwszych po dodaniu danej liczby pierwszej
+	 */
 	public int addNextPrime(long prime){
 		primes.add(prime);
 		return primes.size();
 	}
 
+	/**
+	 * Metoda szukająca kolejną liczbę pierwszą na podstawie listy już znalezionych
+	 * @param primes - lista już otrzymanych liczb pierwszych
+	 * @return [long] kolejna liczba pierwsza
+	 */
 	public long getNextPrime(List<Long> primes){
 		long new_prime = primes.get(primes.size()-1)+1;
 		while(true){
@@ -45,6 +61,11 @@ public class Primes {
 		}
 	}
 
+	
+	/**
+	 * Metoda zwracająca odpowiedź do zadania - 10001-ta liczba pierwsza
+	 * @return [long] odpowiedź na zadanie - szukana liczba pierwsza
+	 */
 	public long getAnswer(){
 		while(Primes.primes.size() != expected_prime_number)
 			Primes.primes.add(getNextPrime(Primes.primes));
